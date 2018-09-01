@@ -25,7 +25,6 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "proxy": "http://localhost:3001",
   "devDependencies": {
     "autoprefixer": "^9.0.1",
     "babel-core": "^6.26.3",
@@ -76,5 +75,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "testURL": "http://localhost"
+  "homepage": "http://localhost"
 }

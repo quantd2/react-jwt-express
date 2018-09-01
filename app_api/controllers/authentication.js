@@ -25,12 +25,14 @@ module.exports.register = function(req, res) {
   user.save(function(err) {
     var token;
     token = user.generateJwt();
-    res.status(200);
-    res.json({
-      "token" : token
-    });
+    if(err) {
+      sendJSONresponse(res, 404, err);
+    } else {
+      sendJSONresponse(res, 200, {
+        "accessToken": token
+      });
+    }
   });
-
 };
 
 module.exports.login = function(req, res) {
@@ -47,20 +49,19 @@ module.exports.login = function(req, res) {
 
     // If Passport throws/catches an error
     if (err) {
-      res.status(404).json(err);
+      sendJSONresponse(res, 404, err);
       return;
     }
 
     // If a user is found
     if(user){
       token = user.generateJwt();
-      res.status(200);
-      res.json({
-        "token" : token
+      sendJSONresponse(res, 200, {
+        "accessToken": token
       });
     } else {
       // If user is not found
-      res.status(401).json(info);
+      sendJSONresponse(res, 401, info);
     }
   })(req, res);
 

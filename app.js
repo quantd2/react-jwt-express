@@ -42,6 +42,12 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 // [SH] Initialise Passport before using the route middleware
 app.use(passport.initialize());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3004");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 // [SH] Use the API routes when path starts with /api
 app.use('/api', routesApi);
 
@@ -50,7 +56,6 @@ app.use('/api', routesApi);
 app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'app_client', 'public', 'index.html'));
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

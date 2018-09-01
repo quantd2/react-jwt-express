@@ -7,7 +7,7 @@ import {
 
 
 const initialState = {
-    title: null,
+    name: null,
     id: null,
     isFetching: false,
     isEditingList: false,
@@ -20,8 +20,8 @@ export default function(state = initialState, action) {
         case SELECT_ACTIVE_BOARD:
             return {
                 ...state,
-                title: action.payload.title,
-                id:  action.payload.id,
+                name: action.payload.name,
+                id:  action.payload._id,
                 isFetching: true
             }
 

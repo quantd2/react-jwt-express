@@ -10,17 +10,17 @@ const persistedState = loadState();
 
 const Store =  createStore(
     RootReducer,
-    persistedState,
+    // persistedState,
     composeWithDevTools(middleware),
 );
 
-Store.subscribe(throttle(() => {
-    saveState({
-        boardsCollection: Store.getState().boardsCollection,
-        activeBoard: Store.getState().activeBoard,
-        newBoard: Store.getState().newBoard,
-        activeBoardData: Store.getState().activeBoardData,
-    })
-}, 1000));
+// Store.subscribe(throttle(() => {
+//     saveState({
+//         boardsCollection: Store.getState().boardsCollection,
+//         activeBoard: Store.getState().activeBoard,
+//         newBoard: Store.getState().newBoard,
+//         activeBoardData: Store.getState().activeBoardData,
+//     })
+// }, 1000));
 
 export default Store;

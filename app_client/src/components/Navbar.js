@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { signOutAction } from '../Actions/SignOut';
+
 class Navbar extends Component {
+
+  logOut() {
+    this.props.signOutAction();
+  }
+
   navbarLinks() {
     if (this.props.authenticated) {
       return [
         <li key="secret"><Link to="/secret">Secret</Link></li>,
-        <li key="signout"><Link to="/signout">Sign out</Link></li>
+        <li key="signout"><Link to="/logout" onClick={() => this.logOut()}>Logout</Link></li>
       ];
     }
     return [
@@ -36,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { signOutAction } )(Navbar);

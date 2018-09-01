@@ -8,9 +8,22 @@ var auth = jwt({
 
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
+var ctrlBoard = require('../controllers/board');
+var ctrlList = require('../controllers/list');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
+
+//boards
+router.post('/boards', auth, ctrlBoard.boardCreateOne);
+router.get('/boards', auth, ctrlBoard.getAllBoardsOfUser);
+router.get('/boards/:id', auth, ctrlBoard.getBoardData);
+
+//lists
+router.post('/boards/:id/lists', auth, ctrlList.listCreateOne);
+
+//cards
+// routes.post('/cards', auth, ctrlCard.CardCreateOne);
 
 // authentication
 router.post('/register', ctrlAuth.register);

@@ -18,9 +18,9 @@ class BoardContainer extends Component {
       return boardsCollection.map(board => {
         return (
           <ShowAllBoards
-            id={board.id}
-            key={board.id}
-            title={board.title}
+            id={board._id}
+            key={board._id}
+            title={board.name}
           />
         )
       })

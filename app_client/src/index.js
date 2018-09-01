@@ -10,11 +10,11 @@ import './index.css';
 
 import { AUTHENTICATED } from './Actions/ActionTypes';
 
-const user = localStorage.getItem('user');
-
-if(user) {
-  Store.dispatch({ type: AUTHENTICATED });
-}
+// const user = localStorage.getItem('user');
+//
+// if(user) {
+//   Store.dispatch({ type: AUTHENTICATED });
+// }
 
 ReactDOM.render(
     <Provider store={Store}>

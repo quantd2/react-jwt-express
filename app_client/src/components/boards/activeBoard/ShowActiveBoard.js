@@ -25,11 +25,15 @@ class ShowActiveBoard extends Component {
     }
 
     getTitle = () => {
-        return this.props.activeBoard.title;
+        return this.props.activeBoard.name;
     }
 
     handleListSubmit = values => {
-        this.props.submitList(values.listItem);
+        const {
+            match ,
+            submitList,
+        } = this.props;
+        submitList(match.params.id, values.listItem);
     }
 
     render() {

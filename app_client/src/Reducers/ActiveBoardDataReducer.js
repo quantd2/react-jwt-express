@@ -10,7 +10,7 @@ import uniqueId from 'lodash/uniqueId';
 
 const ListReducer = (state = {}, action) => {
 
-    const listId = uniqueId("list_");
+    // const listId = uniqueId("list_");
 
     switch (action.type) {
 
@@ -20,9 +20,9 @@ const ListReducer = (state = {}, action) => {
         case SUBMIT_LIST:
             return {
                 ...state,
-                [listId]: { // the unique ID of the list
-                    name: action.payload, // name of the list
-                    id: listId, // list ID
+                [action.payload.id]: { // the unique ID of the list
+                    name: action.payload.name, // name of the list
+                    id: action.payload.id, // list ID
                     cards: [] // card IDs go inside here
                 }
             };

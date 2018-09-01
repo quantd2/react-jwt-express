@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axiosClient from '../Utils/axiosClient';
+import getAllBoards from './GetAllBoards';
 
 import {
   AUTHENTICATED,
@@ -9,10 +10,11 @@ import {
 export function signInAction({ email, password }, history) {
   return async (dispatch) => {
     try {
-      const res = await axios.post(`/login`, { email, password });
-
+      const response = await axiosClient.post(`/api/login`, { email, password });
+      const body = await response.data;
+      localStorage.setItem('authToken', body.accessToken);
       dispatch({ type: AUTHENTICATED });
-      localStorage.setItem('user', res.data.token);
+      dispatch(getAllBoards());
       history.push('/');
     } catch(error) {
       dispatch({

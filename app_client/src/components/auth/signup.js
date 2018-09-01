@@ -25,6 +25,11 @@ class Signup extends Component {
         <div className="container">
           <h2>Sign Up</h2>
           <form onSubmit={ handleSubmit(this.submit) }>
+            <Field name="name"
+                   component="input"
+                   type="text"
+                   placeholder="Name"
+            />
             <Field name="email"
                    component="input"
                    type="text"

@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
+var sendJSONresponse = function(res, status, content) {
+  res.status(status);
+  res.json(content);
+};
+
 module.exports.profileRead = function(req, res) {
 
   if (!req.payload._id) {
@@ -11,7 +16,7 @@ module.exports.profileRead = function(req, res) {
     User
       .findById(req.payload._id)
       .exec(function(err, user) {
-        res.status(200).json(user);
+        sendJSONresponse(res, 200, user);
       });
   }
 

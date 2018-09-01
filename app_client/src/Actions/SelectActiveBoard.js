@@ -9,7 +9,7 @@ export default function selectActiveBoard(id) {
     return dispatch => {
 
         const boardsCollection = Store.getState().boardsCollection;
-        const activeBoard = find(boardsCollection, board => board.id === id);
+        const activeBoard = find(boardsCollection, board => board._id === id);
 
         dispatch({ type: SELECT_ACTIVE_BOARD, payload: activeBoard });
 
