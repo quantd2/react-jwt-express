@@ -25,7 +25,8 @@ router.post('/boards/:id/lists', auth, ctrlList.listCreateOne);
 
 //cards
 router.post('/cards', auth, ctrlCard.cardCreateOne);
-router.put('/move-cards/:id', auth, ctrlCard.cardHandleDrop)
+router.put('/move-cards/:id', auth, ctrlCard.cardHandleDrop);
+router.put('/archive-cards/:id', auth, ctrlCard.cardArchiveToggle);
 
 // authentication
 router.post('/register', ctrlAuth.register);

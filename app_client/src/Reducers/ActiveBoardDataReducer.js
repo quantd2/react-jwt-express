@@ -57,15 +57,16 @@ const ListReducer = (state = {}, action) => {
         }
 
         case ARCHIVE_POST: {
-            const { cardId, listId } = action.payload;
+            const { cardId, listId, isArchived } = action.payload;
             const currentList = state[listId];
             const findCard = currentList.cards.find(card => card._id === cardId);
 
-            if (findCard.isArchived === false) {
-                findCard.isArchived = true;
-            } else {
-                findCard.isArchived = false;
-            }
+            findCard.isArchived = isArchived;
+            // if (findCard.isArchived === false) {
+            //     findCard.isArchived = true;
+            // } else {
+            //     findCard.isArchived = false;
+            // }
 
             return {
                 ...state,

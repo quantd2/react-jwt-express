@@ -6,4 +6,9 @@ var CardSchema = new mongoose.Schema({
   isArchived: { type: Boolean, default: false }
 }, {timestamps: true});
 
+CardSchema.methods.toggleArchive = function() {
+  this.isArchived = !this.isArchived;
+};
+
+
 mongoose.model('Card', CardSchema);

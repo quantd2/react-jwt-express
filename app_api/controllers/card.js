@@ -31,7 +31,7 @@ module.exports.cardCreateOne = function(req, res, next) {
 };
 
 module.exports.cardHandleDrop = function(req, res, next) {
-    console.log("update card");
+    console.log("move card");
     Card.findById(req.params.id).then(function(card) {
         if(!card) {
             return sendJSONresponse(res, 404, { "message": "Card not found" });
@@ -58,11 +58,23 @@ module.exports.cardHandleDrop = function(req, res, next) {
                 }
             }
         );
-
-        // List.find({ card: card }).then(function(srcList){
-        //     srcList.cards.remove(card);
-        //     srcList.save();
-        // })
-        // return sendJSONresponse(res, 200, { "message": "handle drop successfully" });
     })
+};
+
+module.exports.cardArchiveToggle = function(req, res, next) {
+    console.log("toggle archive card");
+    Card.findById(req.params.id).then(function(card) {
+        if(!card) {
+            return sendJSONresponse(res, 404, { "message": "Card not found" });
+        }
+        card.toggleArchive();
+        return card.save(function(err) {
+            if(err) {
+                sendJSONresponse(res, 402, err);
+                return next(err);
+            }
+
+              return sendJSONresponse(res, 200, card);
+        });
+    });
 };
