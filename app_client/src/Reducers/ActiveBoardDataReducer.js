@@ -7,6 +7,8 @@ import {
     SELECT_ACTIVE_BOARD
 } from '~Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
+import isEmpty from 'lodash/isEmpty';
+import keyBy from 'lodash/keyBy';
 
 const ListReducer = (state = {}, action) => {
 
@@ -15,7 +17,11 @@ const ListReducer = (state = {}, action) => {
     switch (action.type) {
 
         case SELECT_ACTIVE_BOARD:
-            return action.payload.data || [];
+            if(isEmpty(action.payload.lists)) {
+                return [];
+            } else {
+                return keyBy(action.payload.lists, '_id');
+            }
 
         case SUBMIT_LIST:
             return {
@@ -30,7 +36,7 @@ const ListReducer = (state = {}, action) => {
         case SUBMIT_NEW_CARD: {
             const { listId, cardName, cardId } = action.payload;
             const currentList = state[listId];
-            currentList.cards.push({ name: cardName, cardId, listId, isArchived: false })
+            currentList.cards.push({ name: cardName, _id: cardId, listId, isArchived: false })
             return {
                 ...state,
                 [listId]: currentList,
@@ -40,8 +46,8 @@ const ListReducer = (state = {}, action) => {
         case HANDLE_DROP: {
             const { cardId, cardName, listId, newListId } = action.payload;
             const currentList = state[newListId]; // list that's going to be taking the new card
-            currentList.cards.push({ name: cardName, cardId, listId: newListId }) // add the card to the list
-            const removeCard = state[listId].cards.findIndex(card => card.cardId === cardId); // find the card to remove
+            currentList.cards.push({ name: cardName, _id: cardId, listId: newListId }) // add the card to the list
+            const removeCard = state[listId].cards.findIndex(card => card._id === cardId); // find the card to remove
             const oldList = state[listId].cards.splice(removeCard, 1) // remove the card from the list
 
                 return {
@@ -53,7 +59,7 @@ const ListReducer = (state = {}, action) => {
         case ARCHIVE_POST: {
             const { cardId, listId } = action.payload;
             const currentList = state[listId];
-            const findCard = currentList.cards.find(card => card.cardId === cardId);
+            const findCard = currentList.cards.find(card => card._id === cardId);
 
             if (findCard.isArchived === false) {
                 findCard.isArchived = true;

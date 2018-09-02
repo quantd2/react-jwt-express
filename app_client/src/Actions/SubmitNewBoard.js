@@ -11,7 +11,7 @@ export default function submitNewBoard(boardData) {
     axiosClient.post('/api/boards', { name: boardData })
       .then((response) => {
         const newBoard = {
-            id: response.data._id,
+            _id: response.data._id,
             name: response.data.name,
             slug: response.data.slug
         };

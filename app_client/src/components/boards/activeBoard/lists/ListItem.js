@@ -34,7 +34,7 @@ const dropSource = {
         // const droppedItem = props.onDrop(monitor.getItem());
 
     },
- 
+
 }
 
 function collect(connect, monitor) {

@@ -10,6 +10,7 @@ var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
 var ctrlBoard = require('../controllers/board');
 var ctrlList = require('../controllers/list');
+var ctrlCard = require('../controllers/card');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -23,7 +24,8 @@ router.get('/boards/:id', auth, ctrlBoard.getBoardData);
 router.post('/boards/:id/lists', auth, ctrlList.listCreateOne);
 
 //cards
-// routes.post('/cards', auth, ctrlCard.CardCreateOne);
+router.post('/cards', auth, ctrlCard.cardCreateOne);
+router.put('/move-cards/:id', auth, ctrlCard.cardHandleDrop)
 
 // authentication
 router.post('/register', ctrlAuth.register);

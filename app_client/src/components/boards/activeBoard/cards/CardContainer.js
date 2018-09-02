@@ -11,7 +11,7 @@ class CreateCardContainer extends Component {
     submit = values => {
         const { listId, submitNewCard } = this.props;
         let cardName = `cardName_${listId}`;
-        submitNewCard(values[cardName], uniqueId('cardItem_'), listId);
+        submitNewCard(values[cardName], listId);
     }
 
     renderCards = () => {
@@ -21,8 +21,8 @@ class CreateCardContainer extends Component {
                 <Card
                     key={i}
                     title={card.name}
-                    cardId={card.cardId}
-                    listId={card.listId}
+                    cardId={card._id}
+                    listId={listId}
                     isArchived={card.isArchived}
                 />
             )
