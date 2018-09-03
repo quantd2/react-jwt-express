@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import selectActiveBoard from '~Actions/SelectActiveBoard';
-import enableListEditMode from '~Actions/ToggleListEditMode';
-import submitList from '~Actions/SubmitList';
+import selectActiveBoard from '../../../Actions/SelectActiveBoard';
+import enableListEditMode from '../../../Actions/ToggleListEditMode';
+import submitList from '../../../Actions/SubmitList';
 import ActiveBoardTitle from './ActiveBoardTitle';
 import ListWrapper from './lists/ListWrapper';
 import CreateNewList from './lists/CreateNewList';

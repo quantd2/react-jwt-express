@@ -7,8 +7,8 @@
         "transform-class-properties",
         "transform-decorators",
         ["transform-runtime", {
-            "polyfill": false,
-            "regenerator": true
+          "polyfill": false,
+          "regenerator": true
         }]
     ]
 }

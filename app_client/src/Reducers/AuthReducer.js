@@ -2,7 +2,7 @@ import {
     AUTHENTICATED,
     UNAUTHENTICATED,
     AUTHENTICATION_ERROR
-} from '~Actions/ActionTypes';
+} from '../Actions/ActionTypes';
 
 export default function(state={}, action) {
   switch(action.type) {

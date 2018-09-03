@@ -3,7 +3,7 @@ import {
     SELECT_ACTIVE_BOARD_SUCCESS,
     LIST_EDIT_MODE_ENABLED,
     STOP_EDITING_LIST,
-} from '~Actions/ActionTypes';
+} from '../Actions/ActionTypes';
 
 
 const initialState = {

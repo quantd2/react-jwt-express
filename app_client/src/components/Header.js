@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '~Assets/logo.svg';
+// import Logo from '../Assets/logo.svg';
 import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`
@@ -8,9 +8,9 @@ const HeaderWrapper = styled.div`
     justify-content: center;
     padding: 20px 0 0;
 `
+// background-image: url(${Logo});
 
 const Image = styled.svg`
-    background-image: url(${Logo});
     width: 65px;
     height: 65px;
     background-repeat: no-repeat;

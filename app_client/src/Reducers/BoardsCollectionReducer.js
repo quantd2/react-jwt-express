@@ -1,7 +1,7 @@
 import {
     STORE_NEW_BOARD_TO_COLLECTION,
     GET_ALL_BOARDS
-} from '~Actions/ActionTypes';
+} from '../Actions/ActionTypes';
 
 const initialState = [];
 

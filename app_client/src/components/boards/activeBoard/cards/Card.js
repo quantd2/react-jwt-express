@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DragSource } from 'react-dnd';
-import { ItemTypes } from '~Utils/Constants';
-import { fadeIn } from '~Utils/Animations';
-import archiveCard from '~Actions/ArchiveCard';
+import { ItemTypes } from '../../../../Utils/Constants';
+import { fadeIn } from '../../../../Utils/Animations';
+import archiveCard from '../../../../Actions/ArchiveCard';
 
 const CardWrapper = styled.div`
     margin: 10px 0;

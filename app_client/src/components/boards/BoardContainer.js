@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import CreateBoardContainer from './boardCreation/CreateBoardContainer';
 import ShowAllBoards from './ShowAllBoards';
-import { fadeIn } from '~Utils/Animations';
+import { fadeIn } from '../../Utils/Animations';
 
 const Wrapper = styled.div`
   display: flex;

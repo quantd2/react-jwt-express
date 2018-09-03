@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import CreateCardContainer from './../cards/CardContainer';
 import { DropTarget } from 'react-dnd';
-import { ItemTypes } from '~Utils/Constants';
+import { ItemTypes } from '../../../../Utils/Constants';
 import { connect } from 'react-redux'
-import handleDrop from '~Actions/handleDrop';
-import { fadeIn } from '~Utils/Animations';
+import handleDrop from '../../../../Actions/handleDrop';
+import { fadeIn } from '../../../../Utils/Animations';
 
 const ListItemWrapper = styled.div`
     display: inline-block;

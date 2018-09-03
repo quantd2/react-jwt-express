@@ -5,7 +5,7 @@ import {
     HANDLE_DROP,
     ARCHIVE_POST,
     SELECT_ACTIVE_BOARD
-} from '~Actions/ActionTypes';
+} from '../Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
 import isEmpty from 'lodash/isEmpty';
 import keyBy from 'lodash/keyBy';

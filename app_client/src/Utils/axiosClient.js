@@ -3,7 +3,7 @@ import axios from 'axios';
 const isProduction = process.env.NODE_ENV === 'production';
 var baseURL = '';
 if (isProduction) {
-  baseURL = 'https://be.streamy.live/api/v2';
+  baseURL = 'http://localhost:3001/';
 } else {
   baseURL = 'http://localhost:3001/';
 }

@@ -82,7 +82,7 @@ module.exports.getAllBoardsOfUser = function(req, res, next) {
 module.exports.getBoardData = function(req, res, next) {
   console.log("get all lists from board");
   getAuthor(req, res, function(req, res, user) {
-    board = Board.findById(req.params.id)
+    Board.findById(req.params.id)
       .select('name _id author')
       .populate({
         path: 'lists', select: 'name _id', populate: { path: 'cards', select: 'isArchived name _id' }
