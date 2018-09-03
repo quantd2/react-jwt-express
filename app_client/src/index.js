@@ -7,14 +7,15 @@ import App from './components/App';
 import Store from './Store.js';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import './bootstrap.min.css';
 
 import { AUTHENTICATED } from './Actions/ActionTypes';
 
-// const user = localStorage.getItem('user');
-//
-// if(user) {
-//   Store.dispatch({ type: AUTHENTICATED });
-// }
+const authToken = localStorage.getItem('authToken');
+
+if(authToken) {
+  Store.dispatch({ type: AUTHENTICATED });
+}
 
 ReactDOM.render(
     <Provider store={Store}>

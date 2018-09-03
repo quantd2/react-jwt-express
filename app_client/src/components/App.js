@@ -8,18 +8,18 @@ import BoardContainer from './boards/BoardContainer';
 import ShowActiveBoard from './boards/activeBoard/ShowActiveBoard';
 import NotFound from './NotFound';
 import Header from './Header';
-import Navbar from './Navbar';
+import Navigation from './Navigation';
 import requireAuth from './auth/require_auth';
 import noRequireAuth from './auth/no_require_auth';
-import Signin from './auth/signin';
-import Signup from './auth/signup';
+import Signin from './auth/Signin';
+import Signup from './auth/Signup';
 
 @DragDropContext(HTML5Backend)
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navigation />
         <Header />
         <Switch>
           <Route exact path="/" component={requireAuth(BoardContainer)} />
