@@ -81,5 +81,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "."
+  "homepage": "/"
 }
