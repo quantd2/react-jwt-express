@@ -5,7 +5,7 @@ var baseURL = '';
 if (isProduction) {
   baseURL = 'http://localhost:3001/';
 } else {
-  baseURL = 'http://localhost:3001/';
+  baseURL = 'https://localhost/';
 }
 
 const axiosClient = axios.create({

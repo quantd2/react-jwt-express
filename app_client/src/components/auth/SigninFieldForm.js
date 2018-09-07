@@ -42,7 +42,7 @@ let SigninFieldForm = (props) => {
                 <Field
                     name="email"
                     component={FieldInput}
-                    placeholder="name"
+                    placeholder="email"
                     type="text"
                 />
                 <Field
