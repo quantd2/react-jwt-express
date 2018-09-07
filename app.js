@@ -24,8 +24,8 @@ var routesApi = require('./app_api/routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -54,7 +54,7 @@ app.use('/api', routesApi);
 // [SH] Otherwise render the index.html page for the ReactJS SPA
 // [SH] This means we don't have to map all of the SPA routes in Express
 app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'app_client', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'app_client', 'static', 'index.html'));
 });
 
 // catch 404 and forward to error handler
