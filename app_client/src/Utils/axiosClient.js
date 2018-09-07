@@ -3,7 +3,7 @@ import axios from 'axios';
 const isProduction = process.env.NODE_ENV === 'production';
 var baseURL = '';
 if (isProduction) {
-  baseURL = 'https://blooming-bastion-63165.herokuapp.com';
+  baseURL = 'http://localhost:3001';
 } else {
   baseURL = 'http://localhost:3001';
 }

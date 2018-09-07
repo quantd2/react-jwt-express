@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CloseIcon from '~Assets/closeIcon.svg';
+import CloseIcon from '~Assets/closeIcon';
 
 const DisableWrapper = styled.div`
     position: relative;
@@ -8,11 +8,10 @@ const DisableWrapper = styled.div`
     top: -24px;
     z-index: 9999;
 `
-const DisableButton = styled.svg`
+const DisableButton = styled.div`
     width: 24px;
     height: 24px;
     padding: 5px;
-    background-image: url(${CloseIcon});
     transition: all 200ms ease-in-out;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -25,7 +24,9 @@ const DisableButton = styled.svg`
 
 const DisableListEditMode = ({ disableList }) => (
     <DisableWrapper onClick={disableList}>
-        <DisableButton />
+        <DisableButton>
+            <CloseIcon />
+        </DisableButton>
     </DisableWrapper>
 );
 
