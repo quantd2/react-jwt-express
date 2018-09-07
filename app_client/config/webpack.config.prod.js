@@ -150,6 +150,27 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          // SVG are imported as react components
+          {
+            test: /\.svg$/,
+            use: [
+              {
+                loader: 'babel-loader',
+              },
+              {
+                loader: 'react-svg-loader',
+                options: {
+                  svgo: {
+                    plugins: [
+                      { removeTitle: false }
+                    ],
+                    floatPrecision: 2,
+                  }
+                }
+              },
+            ],
+            include: paths.svg,
+          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,

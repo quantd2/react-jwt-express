@@ -5,13 +5,6 @@
 
  */
 
-
-// import React from 'react';
-// import { renderToString } from 'react-dom/server';
-// import { StaticRouter, matchPath } from "react-router-dom";
-// import { renderRoutes } from 'react-router-config';
-// import App from './app_client/src/components/App';
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -25,17 +18,14 @@ require('./app_api/models/db');
 // [SH] Bring in the Passport config after model is defined
 require('./app_api/config/passport');
 
-// routes from client
-var routes = require('./app_client/src/components/App');
-
 // [SH] Bring in the routes for the API (delete the default routes)
 var routesApi = require('./app_api/routes/index');
 
 var app = express();
 
 // view engine setup
-app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -45,15 +35,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 // [SH] Set the app_client folder to serve static resources
-app.use(express.static(path.join(__dirname, 'app_client/build')));
-
+app.use(express.static(path.join(__dirname, 'app_client/build/static')));
 
 
 // [SH] Initialise Passport before using the route middleware
 app.use(passport.initialize());
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3004");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
@@ -61,23 +50,12 @@ app.use(function(req, res, next) {
 // [SH] Use the API routes when path starts with /api
 app.use('/api', routesApi);
 
-app.use(express.static("public"))
 
-// app.get('*', (req, res) => {
-//   debugger;
-//   let context = {};
-//   const markup = renderToString(
-//     <StaticRouter location={req.url} context={context}>
-//       {renderRoutes(routes)}
-//     </StaticRouter>
-//   );
-//   res.render('index', {title: 'Express', data: false, markup });
-// });
 // [SH] Otherwise render the index.html page for the ReactJS SPA
 // [SH] This means we don't have to map all of the SPA routes in Express
-// app.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, 'app_client', 'public', 'index.html'));
-// });
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'app_client', 'public', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

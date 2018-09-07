@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './components/App';
 import Store from './Store.js';
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import './bootstrap.min.css';
 
@@ -17,7 +17,7 @@ if(authToken) {
   Store.dispatch({ type: AUTHENTICATED });
 }
 
-ReactDOM.hydrate(
+ReactDOM.render(
     <Provider store={Store}>
         <Router>
             <App />
