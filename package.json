@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "heroku-postbuild": "cd app_client && yarn install && yarn build",
     "build": "webpack -p"
   },
   "dependencies": {
