@@ -81,5 +81,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://localhost"
+  "homepage": "https://blooming-bastion-63165.herokuapp.com"
 }
